@@ -1,0 +1,31 @@
+<aside class="neo-sidebar">
+  <div class="logo-container">
+    <img class="icon-side" />
+  </div>
+
+  <nav class="sidebar-nav">
+    <a routerLink="/home" routerLinkActive="active" class="nav-item">
+      <i class="icon-home"></i>
+      <span>{{ 'SIDEBAR.INICIO' | translate }}</span>
+    </a>
+    <a routerLink="/calculadora" routerLinkActive="active" class="nav-item">
+      <i class="icon-calculator"></i>
+      <span>{{ 'SIDEBAR.CALCULADORA' | translate }}</span>
+    </a>
+    <a routerLink="/configuracion" routerLinkActive="active" class="nav-item"  *ngIf="logueado">
+      <i class="icon-settings"></i>
+      <span>{{ 'SIDEBAR.CONFIGURACION' | translate }}</span>
+    </a>
+    <a routerLink="/configuracion" routerLinkActive="active" class="nav-item"  *ngIf="logueado && superadd">
+      <i class="icon-settings"></i>
+      <span>{{ 'SIDEBAR.CONFIGURACION' | translate }}</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="btn-logout" *ngIf="logueado">
+      <i class="icon-logout"></i>
+      <span>{{ 'SIDEBAR.CERRAR_SESION' | translate }}</span>
+    </button>
+  </div>
+</aside>

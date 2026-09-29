@@ -1,0 +1,209 @@
+<div class="catalogo-admin-container p-3">
+  <button *ngIf="nivelActual !== 'SERVICIOS'" pButton type="button" icon="pi pi-arrow-left"
+    [label]="'GLOBAL.BTN_VOLVER' | translate" class="button-left p-button-outlined p-button-secondary p-button-sm"
+    (click)="volver()">
+  </button>
+  <nav class="breadcrumb-nav mb-3">
+    <ol class="breadcrumb m-0">
+      <li *ngFor="let item of breadcrumbs; let i = index" class="breadcrumb-item"
+        [class.active]="i === breadcrumbs.length - 1">
+        <a *ngIf="i < breadcrumbs.length - 1" (click)="irANivel(item, i)" class="cursor-pointer text-decoration-none">
+          {{ item.label }}
+        </a>
+        <span *ngIf="i === breadcrumbs.length - 1">{{ item.label }}</span>
+      </li>
+    </ol>
+  </nav>
+
+  <div *ngIf="nivelActual === 'SERVICIOS'" class="card shadow-sm">
+    <p-table #dtServicios [value]="servicios" [paginator]="true" [rows]="10" [responsiveLayout]="'scroll'"
+      [globalFilterFields]="['codigo', 'nombre', 'descripcion']" styleClass="p-datatable-striped p-datatable-gridlines">
+      <ng-template pTemplate="caption">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <h4 class="m-0 font-bold">{{ 'ADMIN_CATALOGO.TITULO_SERVICIOS' | translate }}</h4>
+          <div class="d-flex gap-2">
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" (input)="dtServicios.filterGlobal($any($event.target).value, 'contains')"
+                [placeholder]="'GLOBAL.LBL_BUSCAR' | translate" />
+            </span>
+            <button pButton type="button" icon="pi pi-plus" [label]="'ADMIN_CATALOGO.NUEVO_SERVICIO' | translate"
+              class="p-button-rounded p-button-success" (click)="abrirCrearServicio()">
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="codigo" style="width: 15%">
+            {{ 'ADMIN_CATALOGO.COL_CODIGO' | translate }} <p-sortIcon field="codigo"></p-sortIcon>
+          </th>
+          <th pSortableColumn="nombre" style="width: 25%">
+            {{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }} <p-sortIcon field="nombre"></p-sortIcon>
+          </th>
+          <th style="width: 30%">{{ 'ADMIN_CATALOGO.COL_DESCRIPCION' | translate }}</th>
+          <th style="width: 15%">{{ 'ADMIN_CATALOGO.COL_MOTOR' | translate }}</th>
+          <th pSortableColumn="activo" style="width: 10%">
+            {{ 'GLOBAL.LBL_ESTADO' | translate }} <p-sortIcon field="activo"></p-sortIcon>
+          </th>
+          <th class="text-center" style="width: 10%">{{ 'ADMIN_CATALOGO.COL_ACCIONES' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-serv>
+        <tr class="cursor-pointer" (click)="verProductosDeServicio(serv)">
+          <td><strong>{{ serv.codigo }}</strong></td>
+          <td>{{ serv.nombre | translate }}</td>
+          <td>{{ (serv.descripcion ? (serv.descripcion | translate) : '-') }}</td>
+          <td><span class="badge bg-info text-dark">{{ serv.motorCalculo || serv.motorCalculoId }}</span></td>
+          <td>
+            <span class="badge" [ngClass]="serv.activo ? 'bg-success' : 'bg-danger'">
+              {{ serv.activo ? ('GLOBAL.ACTIVO' | translate) : ('GLOBAL.INACTIVO' | translate) }}
+            </span>
+          </td>
+          <td class="text-center" (click)="$event.stopPropagation()">
+            <button pButton icon="pi pi-cog" class="p-button-rounded p-button-text p-button-info me-1"
+              [pTooltip]="'ADMIN_CATALOGO.VER_PRODUCTOS' | translate" (click)="verProductosDeServicio(serv)">
+            </button>
+            <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-success me-1"
+              (click)="abrirEditarServicio(serv, $event)">
+            </button>
+            <button pButton icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger"
+              (click)="eliminarServicio(serv, $event)">
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="6" class="text-center p-4 text-muted">
+            {{ 'SERVICIOS.NO_RESULTADOS' | translate }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div *ngIf="nivelActual === 'PRODUCTOS'" class="card shadow-sm">
+    <p-table #dtProductos [value]="productos" [paginator]="true" [rows]="10" [responsiveLayout]="'scroll'"
+      [globalFilterFields]="['codigo', 'nombre', 'descripcion']" styleClass="p-datatable-striped p-datatable-gridlines">
+      <ng-template pTemplate="caption">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <h4 class="m-0 font-bold">
+            {{ 'ADMIN_CATALOGO.TITULO_PRODUCTOS' | translate:{ servicio: servicioSeleccionado?.nombre } }}
+          </h4>
+          <div class="d-flex gap-2">
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" (input)="dtProductos.filterGlobal($any($event.target).value, 'contains')"
+                [placeholder]="'GLOBAL.LBL_BUSCAR' | translate" />
+            </span>
+            <button pButton type="button" icon="pi pi-plus" [label]="'ADMIN_CATALOGO.NUEVO_PRODUCTO' | translate"
+              class="p-button-rounded p-button-success" (click)="abrirCrearProducto()">
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="codigo" style="width: 15%">
+            {{ 'ADMIN_CATALOGO.COL_CODIGO' | translate }} <p-sortIcon field="codigo"></p-sortIcon>
+          </th>
+          <th pSortableColumn="nombre" style="width: 30%">
+            {{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }} <p-sortIcon field="nombre"></p-sortIcon>
+          </th>
+          <th style="width: 35%">{{ 'ADMIN_CATALOGO.COL_DESCRIPCION' | translate }}</th>
+          <th pSortableColumn="activo" style="width: 10%">
+            {{ 'GLOBAL.LBL_ESTADO' | translate }} <p-sortIcon field="activo"></p-sortIcon>
+          </th>
+          <th class="text-center" style="width: 10%">{{ 'ADMIN_CATALOGO.COL_ACCIONES' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-prod>
+        <tr class="cursor-pointer" (click)="verDetalleProducto(prod)">
+          <td><strong>{{ prod.codigo }}</strong></td>
+          <td>{{ prod.nombre }}</td>
+          <td>{{ prod.descripcion || '-' }}</td>
+          <td>
+            <span class="badge" [ngClass]="prod.activo ? 'bg-success' : 'bg-danger'">
+              {{ prod.activo ? ('GLOBAL.ACTIVO' | translate) : ('GLOBAL.INACTIVO' | translate) }}
+            </span>
+          </td>
+          <td class="text-center" (click)="$event.stopPropagation()">
+            <button pButton icon="pi pi-cog" class="p-button-rounded p-button-text p-button-primary me-1"
+              [pTooltip]="'ADMIN_CATALOGO.CONFIGURAR' | translate" (click)="verDetalleProducto(prod)">
+            </button>
+            <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-success me-1"
+              (click)="abrirEditarProducto(prod, $event)">
+            </button>
+            <button pButton icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger"
+              (click)="eliminarProducto(prod, $event)">
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="5" class="text-center p-4 text-muted">
+            {{ 'PRODUCTOS.NO_RESULTADOS' | translate }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div *ngIf="nivelActual === 'DETALLE_PRODUCTO' && productoSeleccionado" class="card shadow-sm p-3">
+    <app-detalle-producto-config [producto]="productoSeleccionado"></app-detalle-producto-config>
+  </div>
+</div>
+
+<p-dialog [(visible)]="mostrarModalServicio"
+  [header]="modoEdicion ? ('ADMIN_CATALOGO.EDITAR_SERVICIO' | translate) : ('ADMIN_CATALOGO.NUEVO_SERVICIO' | translate)"
+  [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '450px' }">
+  <form [formGroup]="formServicio" (ngSubmit)="guardarServicio()" class="p-fluid mt-2">
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_CODIGO' | translate }}</label>
+      <input pInputText type="text" formControlName="codigo" placeholder="Ej. GRAN-FORMATO" />
+    </div>
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }}</label>
+      <input pInputText type="text" formControlName="nombre" />
+    </div>
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_DESCRIPCION' | translate }}</label>
+      <textarea pInputTextarea formControlName="descripcion" rows="3"></textarea>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <button pButton type="button" icon="pi pi-check" [label]="'BOTONES.BTN_GUARDAR' | translate"
+      class="p-button-rounded p-button-success" [disabled]="formServicio.invalid" (click)="guardarServicio()">
+    </button>
+    <button pButton type="button" icon="pi pi-times" [label]="'BOTONES.BTN_CANCELAR' | translate"
+      class="p-button-rounded p-button-text p-button-secondary" (click)="mostrarModalServicio = false">
+    </button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="mostrarModalProducto"
+  [header]="modoEdicion ? ('ADMIN_CATALOGO.EDITAR_PRODUCTO' | translate) : ('ADMIN_CATALOGO.NUEVO_PRODUCTO' | translate)"
+  [modal]="true" [draggable]="false" [resizable]="false" [style]="{ width: '450px' }">
+  <form [formGroup]="formProducto" (ngSubmit)="guardarProducto()" class="p-fluid mt-2">
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_CODIGO' | translate }}</label>
+      <input pInputText type="text" formControlName="codigo" />
+    </div>
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }}</label>
+      <input pInputText type="text" formControlName="nombre" />
+    </div>
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_DESCRIPCION' | translate }}</label>
+      <textarea pInputTextarea formControlName="descripcion" rows="3"></textarea>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <button pButton type="button" icon="pi pi-check" [label]="'BOTONES.BTN_GUARDAR' | translate"
+      class="p-button-rounded p-button-success" [disabled]="formProducto.invalid" (click)="guardarProducto()">
+    </button>
+    <button pButton type="button" icon="pi pi-times" [label]="'BOTONES.BTN_CANCELAR' | translate"
+      class="p-button-rounded p-button-text p-button-secondary" (click)="mostrarModalProducto = false">
+    </button>
+  </ng-template>
+</p-dialog>

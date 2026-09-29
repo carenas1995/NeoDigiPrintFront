@@ -1,0 +1,213 @@
+<div class="detalle-producto-container">
+  <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-light rounded border ">
+  <div>
+    <h3 class="m-0 text-success font-bold">
+      {{ (producto.nombre | translate) }}
+    </h3>
+    <small class="text-muted">
+      <strong>{{ 'ADMIN_CATALOGO.COL_CODIGO' | translate }}:</strong> {{ producto.codigo }}
+    </small>
+  </div>
+  <span class="badge" [ngClass]="producto.activo ? 'bg-success' : 'bg-danger'">
+    {{ producto.activo ? ('GLOBAL.ACTIVO' | translate) : ('GLOBAL.INACTIVO' | translate) }}
+  </span>
+</div>
+
+  <p-tabView>
+    <p-tabPanel [header]="'DETALLE_PRODUCTO.TABS.MARCAS' | translate" leftIcon="pi pi-tags">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="m-0">{{ 'DETALLE_PRODUCTO.MARCAS.TITULO' | translate }}</h5>
+        <button pButton type="button" icon="pi pi-plus" [label]="'DETALLE_PRODUCTO.MARCAS.BTN_NUEVA' | translate"
+          class="p-button-rounded p-button-success p-button-sm" (click)="abrirCrearMarca()">
+        </button>
+      </div>
+      <p-table [value]="marcas" [responsiveLayout]="'scroll'" styleClass="p-datatable-striped p-datatable-gridlines">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }}</th>
+            <th>{{ 'ADMIN_CATALOGO.COL_DESCRIPCION' | translate }}</th>
+            <th class="text-center" style="width: 15%">{{ 'GLOBAL.LBL_ESTADO' | translate }}</th>
+            <th class="text-center" style="width: 15%">{{ 'ADMIN_CATALOGO.COL_ACCIONES' | translate }}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-marca>
+          <tr>
+            <td><strong>{{ marca.nombre }}</strong></td>
+            <td>{{ marca.descripcion || '-' }}</td>
+            <td class="text-center">
+              <span class="badge" [ngClass]="marca.activo ? 'bg-success' : 'bg-danger'">
+                {{ marca.activo ? ('GLOBAL.ACTIVO' | translate) : ('GLOBAL.INACTIVO' | translate) }}
+              </span>
+            </td>
+            <td class="text-center">
+              <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-warning me-1"
+                (click)="abrirEditarMarca(marca)"></button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="4" class="text-center p-3 text-muted">
+              {{ 'DETALLE_PRODUCTO.MARCAS.NO_RESULTADOS' | translate }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-tabPanel>
+    
+    <p-tabPanel [header]="'DETALLE_PRODUCTO.TABS.PRESENTACIONES' | translate" leftIcon="pi pi-box">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="m-0">{{ 'DETALLE_PRODUCTO.PRESENTACIONES.TITULO' | translate }}</h5>
+        <button pButton type="button" icon="pi pi-plus"
+          [label]="'DETALLE_PRODUCTO.PRESENTACIONES.BTN_NUEVA' | translate"
+          class="p-button-rounded p-button-success p-button-sm" (click)="abrirCrearPresentacion()">
+        </button>
+      </div>
+      <p-table [value]="presentaciones" [responsiveLayout]="'scroll'"
+        styleClass="p-datatable-striped p-datatable-gridlines">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ 'ADMIN_CATALOGO.COL_CODIGO' | translate }}</th>
+            <th>{{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }}</th>
+            <th class="text-center" style="width: 15%">{{ 'GLOBAL.LBL_ESTADO' | translate }}</th>
+            <th class="text-center" style="width: 15%">{{ 'ADMIN_CATALOGO.COL_ACCIONES' | translate }}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pres>
+          <tr>
+            <td><strong>{{ pres.codigo }}</strong></td>
+            <td>{{ pres.nombre }}</td>
+            <td class="text-center">
+              <span class="badge" [ngClass]="pres.activo ? 'bg-success' : 'bg-danger'">
+                {{ pres.activo ? ('GLOBAL.ACTIVO' | translate) : ('GLOBAL.INACTIVO' | translate) }}
+              </span>
+            </td>
+            <td class="text-center">
+              <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-warning me-1"
+                (click)="abrirEditarPresentacion(pres)"></button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="4" class="text-center p-3 text-muted">
+              {{ 'DETALLE_PRODUCTO.PRESENTACIONES.NO_RESULTADOS' | translate }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-tabPanel>
+    
+    <p-tabPanel [header]="'DETALLE_PRODUCTO.TABS.MATERIALES' | translate" leftIcon="pi pi-layers">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="m-0">{{ 'DETALLE_PRODUCTO.MATERIALES.TITULO' | translate }}</h5>
+        <button pButton type="button" icon="pi pi-plus" [label]="'DETALLE_PRODUCTO.MATERIALES.BTN_NUEVO' | translate"
+          class="p-button-rounded p-button-success p-button-sm" (click)="abrirCrearMaterial()">
+        </button>
+      </div>
+      <p-table [value]="materiales" [responsiveLayout]="'scroll'"
+        styleClass="p-datatable-striped p-datatable-gridlines">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }}</th>
+            <th>{{ 'DETALLE_PRODUCTO.MATERIALES.COL_ANCHO_MAX' | translate }}</th>
+            <th>{{ 'DETALLE_PRODUCTO.MATERIALES.COL_ALTO_MAX' | translate }}</th>
+            <th class="text-center" style="width: 15%">{{ 'GLOBAL.LBL_ESTADO' | translate }}</th>
+            <th class="text-center" style="width: 15%">{{ 'ADMIN_CATALOGO.COL_ACCIONES' | translate }}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-mat>
+          <tr>
+            <td><strong>{{ mat.nombre }}</strong></td>
+            <td>{{ mat.anchoMaximo || 'N/A' }}</td>
+            <td>{{ mat.altoMaximo || 'N/A' }}</td>
+            <td class="text-center">
+              <span class="badge" [ngClass]="mat.activo ? 'bg-success' : 'bg-danger'">
+                {{ mat.activo ? ('GLOBAL.ACTIVO' | translate) : ('GLOBAL.INACTIVO' | translate) }}
+              </span>
+            </td>
+            <td class="text-center">
+              <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-warning me-1"
+                (click)="abrirEditarMaterial(mat)"></button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="5" class="text-center p-3 text-muted">
+              {{ 'DETALLE_PRODUCTO.MATERIALES.NO_RESULTADOS' | translate }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-tabPanel>
+  </p-tabView>
+</div>
+
+<p-dialog [(visible)]="mostrarModalMarca"
+  [header]="modoEdicion ? ('DETALLE_PRODUCTO.MARCAS.EDITAR' | translate) : ('DETALLE_PRODUCTO.MARCAS.NUEVA' | translate)"
+  [modal]="true" [style]="{ width: '400px' }">
+  <form [formGroup]="formMarca" (ngSubmit)="guardarMarca()" class="p-fluid mt-2">
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }}</label>
+      <input pInputText type="text" formControlName="nombre" />
+    </div>
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_DESCRIPCION' | translate }}</label>
+      <textarea pInputTextarea formControlName="descripcion" rows="3"></textarea>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <button pButton type="button" icon="pi pi-check" [label]="'BOTONES.BTN_GUARDAR' | translate"
+      class="p-button-rounded p-button-success" [disabled]="formMarca.invalid" (click)="guardarMarca()"></button>
+    <button pButton type="button" icon="pi pi-times" [label]="'BOTONES.BTN_CANCELAR' | translate"
+      class="p-button-rounded p-button-text p-button-secondary" (click)="mostrarModalMarca = false"></button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="mostrarModalPresentacion"
+  [header]="modoEdicion ? ('DETALLE_PRODUCTO.PRESENTACIONES.EDITAR' | translate) : ('DETALLE_PRODUCTO.PRESENTACIONES.NUEVA' | translate)"
+  [modal]="true" [style]="{ width: '400px' }">
+  <form [formGroup]="formPresentacion" (ngSubmit)="guardarPresentacion()" class="p-fluid mt-2">
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_CODIGO' | translate }}</label>
+      <input pInputText type="text" formControlName="codigo" />
+    </div>
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }}</label>
+      <input pInputText type="text" formControlName="nombre" />
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <button pButton type="button" icon="pi pi-check" [label]="'BOTONES.BTN_GUARDAR' | translate"
+      class="p-button-rounded p-button-success" [disabled]="formPresentacion.invalid"
+      (click)="guardarPresentacion()"></button>
+    <button pButton type="button" icon="pi pi-times" [label]="'BOTONES.BTN_CANCELAR' | translate"
+      class="p-button-rounded p-button-text p-button-secondary" (click)="mostrarModalPresentacion = false"></button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="mostrarModalMaterial"
+  [header]="modoEdicion ? ('DETALLE_PRODUCTO.MATERIALES.EDITAR' | translate) : ('DETALLE_PRODUCTO.MATERIALES.NUEVO' | translate)"
+  [modal]="true" [style]="{ width: '400px' }">
+  <form [formGroup]="formMaterial" (ngSubmit)="guardarMaterial()" class="p-fluid mt-2">
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'ADMIN_CATALOGO.COL_NOMBRE' | translate }}</label>
+      <input pInputText type="text" formControlName="nombre" />
+    </div>
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'DETALLE_PRODUCTO.MATERIALES.COL_ANCHO_MAX' | translate }}</label>
+      <input pInputText type="number" formControlName="anchoMaximo" />
+    </div>
+    <div class="field mb-3">
+      <label class="form-label font-bold">{{ 'DETALLE_PRODUCTO.MATERIALES.COL_ALTO_MAX' | translate }}</label>
+      <input pInputText type="number" formControlName="altoMaximo" />
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <button pButton type="button" icon="pi pi-check" [label]="'BOTONES.BTN_GUARDAR' | translate"
+      class="p-button-rounded p-button-success" [disabled]="formMaterial.invalid" (click)="guardarMaterial()"></button>
+    <button pButton type="button" icon="pi pi-times" [label]="'BOTONES.BTN_CANCELAR' | translate"
+      class="p-button-rounded p-button-text p-button-secondary" (click)="mostrarModalMaterial = false"></button>
+  </ng-template>
+</p-dialog>

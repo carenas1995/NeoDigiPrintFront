@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12  content-card" style="padding: 0.5rem 0;">
+      <div class="col-md-12 col-sm-12" style="display: inline-flex;">
+        <div class="col-md-2 col-sm-2" *ngFor="let o of options;let i = index" style="margin: auto;">
+          <div class="col-md-12 align-items-center">
+            <p-radioButton [name]="'ingredient'+i" value="{{o.type}}" [(ngModel)]="tipodescarga"
+              inputId="ingredient1" />
+            <label [for]="'ingredient'+i" class="ml-2">
+              {{o.tittle}}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 modal-footer justify-content-center align-items-center" style="margin-top: 0.5rem;">
+        <button type="button" pTooltip="{{'LBL_TOLDESG' | translate }}" class="btn btn-danger" data-bs-dismiss="modal"
+          (click)="selecttype()" [disabled]="!tipodescarga">
+          <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;{{'BTN_DESCARGAR' | translate}}
+        </button>
+        <button type="button" class="btn btn-secondary" pTooltip="{{'LBL_VOLVER' | translate }}" (click)="closewindow()"
+          data-dismiss="modal">{{'BTN_CERRAR' | translate}}</button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+<div class="admin-container">
+  <div class="admin-tabs">
+    <button (click)="cambiarVista('configuracion')" [class.active]="vistaActual === 'configuracion'">
+      {{ 'CONFIGURACION.CONFIG' | translate }}
+    </button>
+    <button (click)="cambiarVista('catalogo')" [class.active]="vistaActual === 'catalogo'">
+      {{ 'CONFIGURACION.CATALG' | translate }}
+    </button>
+  </div>
+
+  <div class="admin-content">
+    <app-admin-configuracion *ngIf="vistaActual === 'configuracion'"></app-admin-configuracion>
+    <app-admin-catalogo *ngIf="vistaActual === 'catalogo'"></app-admin-catalogo>
+  </div>
+</div>

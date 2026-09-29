@@ -1,0 +1,38 @@
+<header class="neo-header">
+  <div class="header-title">
+    <h1>{{ 'NAVBAR.TITULO' | translate }}</h1>
+  </div>
+
+  <div class="header-center-action">
+  </div>
+
+  <div class="header-actions">
+    <div class="lang-selector">
+      <button (click)="cambiarIdioma('es')" [class.active]="idiomaActual === 'es'" class="btn-lang">
+        <span class="flag">🇪🇸</span> ES
+      </button>
+      <button (click)="cambiarIdioma('en')" [class.active]="idiomaActual === 'en'" class="btn-lang">
+        <span class="flag">🇺🇸</span> EN
+      </button>
+    </div>
+
+    <div class="user-profile" routerLink="/configuracion" *ngIf="logueado">
+      <div class="user-info">
+        <span class="user-name">{{ usuario?.nombre }}</span>
+        <span class="user-role">{{ usuario?.cargo }}</span>
+      </div>
+      <div class="avatar-wrapper">
+        <div class="avatar-status-online"></div>
+        <img src="assets/images/perfil-avatar.png" alt="Superadmin Avatar" class="user-avatar">
+      </div>
+    </div>
+
+    <div class="user-profile" routerLink="/login" *ngIf="!logueado">
+      <div class="user-info">
+        <span class="user-name">
+          <i class="pi pi-user"></i> {{ 'NAVBAR.INICIAR_SESION' | translate }}
+        </span>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,339 @@
+{
+    "primeng": {
+        "dayNamesMin": [
+            "Su",
+            "Mo",
+            "Tu",
+            "We",
+            "Th",
+            "Fr",
+            "Sa"
+        ],
+        "monthNames": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ]
+    },
+    "GLOBAL": {
+        "LBL_ESP": "Spanish",
+        "LBL_ING": "English",
+        "LBL_SELECCIONE": "Select an option...",
+        "LBL_BUSCADOR": "Search",
+        "LBL_BUSCAR": "Search",
+        "LBL_ESTADO": "Status",
+        "ACTIVO": "Active",
+        "INACTIVO": "Inactive",
+        "BTN_VOLVER": "Back"
+    },
+    "APP_INFO": {
+        "LBL_APPNAME": "NEO | Creative Solutions",
+        "LBL_V.S": "1.0.0",
+        "LBL_VERSION": "Version",
+        "LBL_COPYRIGHT": "Copyright",
+        "LBL_FOOTER": "All Rights Reserved."
+    },
+    "NAVBAR": {
+        "TITULO": "CREATIVE SOLUTIONS",
+        "BUSCAR_PLACEHOLDER": "Search a creative production service...",
+        "INICIAR_SESION": "Log In"
+    },
+    "SIDEBAR": {
+        "INICIO": "Home",
+        "CALCULADORA": "Calculator",
+        "CONFIGURACION": "Settings",
+        "CERRAR_SESION": "Log Out"
+    },
+    "BOTONES": {
+        "BTN_GUARDAR": "Save",
+        "BTN_CANCELAR": "Cancel",
+        "BTN_GENERAR": "Generate",
+        "BTN_CLEAR": "Clear",
+        "BTN_VOLVER": "Back"
+    },
+    "MENSAJES": {
+        "LBL_SEARCH": "Type here to search",
+        "LBL_CARGANDO": "Loading..."
+    },
+    "SERVICIOS": {
+        "SECCION_TITULO": "Our Services",
+        "SECCION_SUBTITULO": "Select a service to get an automated real-time quote",
+        "BOTON_CALCULAR": "Calculate Service",
+        "BOTON_COTIZAR": "Quote Service",
+        "NO_RESULTADOS": "No services found matching your search.",
+        "GRAN_FORMATO": {
+            "TITULO": "Large Format Digital Printing",
+            "DETALLES": "Exceptional quality on banner, vinyl, and high-impact advertising structures."
+        },
+        "TARJETERIA": {
+            "TITULO": "Flyers & Business Cards",
+            "DETALLES": "Business cards, flyers, and corporate stationery with premium finishes."
+        },
+        "POLARIZADO": {
+            "TITULO": "Residential Window Tinting",
+            "DETALLES": "High performance in light control, privacy, and UV protection for your spaces."
+        },
+        "STICKERS": {
+            "TITULO": "Custom Stickers & Decals",
+            "DETALLES": "Die-cut self-adhesive labels with high durability and unique designs."
+        },
+        "VINILARQUITEC": {
+            "TITULO": "Architectural Vinyl Wrapping",
+            "DETALLES": "Premium architectural wrapping solutions for interior design and wall decor."
+        }
+    },
+    "CALCULADORA": {
+        "TITULO": "📐 Dynamic Price Calculator",
+        "SUBTITULO": "Configure project specifications to get an estimated quote.",
+        "CARGANDO_INICIAL": "Loading initial configurations...",
+        "ACTUALIZANDO_MATERIALES": "Updating materials...",
+        "SIN_MATERIALES": "No materials available for this service",
+        "LBL_SELECCIONAR": "Select an option...",
+        "LBL_SERVICIO": "Service",
+        "LBL_PRODUCTO": "Product",
+        "LBL_MATERIAL": "Material",
+        "LBL_LAMINADO": "Lamination Type",
+        "LBL_VARIANTE": "Variant / Color",
+        "LBL_ACABADO": "Finish Type",
+        "SIN_LAMINADO": "No Lamination",
+        "SIN_VARIANTE": "No Special Variant",
+        "SIN_ACABADO": "No Special Finish",
+        "ALERTA_TITULO": "Delivery note",
+        "ALERTA_SIN_INSTALACION": "Uninstalled material. Continuous full length will be delivered (uncut). For special cuts, request it with your advisor.",
+        "TABLA_TITULO": "Piece Dimensions",
+        "BTN_AGREGAR_PIEZA": "Add Piece",
+        "COL_ANCHO": "Width",
+        "COL_ALTO": "Height",
+        "COL_CANT": "Qty.",
+        "COL_PANELIZADO": "Paneling",
+        "PANEL_VERTICAL": "Vertical",
+        "PANEL_HORIZONTAL": "Horizontal",
+        "CON_INSTALACION": "With Installation Included",
+        "SIN_INSTALACION": "Without Installation (Material Only)",
+        "LBL_CANTIDAD": "Quantity of Pieces",
+        "LBL_ADICIONALES": "Additional Services",
+        "TOTAL_ESTIMADO": "Estimated Total",
+        "BTN_WHATSAPP": "Quote via WhatsApp",
+        "MODAL_TITULO": "Confirm Quote",
+        "MODAL_SUBTITULO": "Enter your details to send you the quote via WhatsApp",
+        "MODAL_NOMBRE": "Full Name",
+        "MODAL_TELEFONO": "Phone / WhatsApp",
+        "MODAL_EMAIL": "Email Address (Optional)",
+        "MODAL_BTN_CANCELAR": "Cancel",
+        "MODAL_BTN_WHATSAPP": "Send to WhatsApp",
+        "LBL_MATERIAL_VARIANTE": "Material / Variant",
+        "TIPO_IMPRESION_ACABADO": "Printing Type / Finish",
+        "ESCALAS_CANTIDAD": "Quantity of Units (Thousands / Scales)",
+        "UNIDADES": "Units",
+        "BTN_AGREGAR_OTRA_MEDIDA": "+ Add another measurement",
+        "INSTALACION_TITULO": "Do you require installation service?",
+        "INSTALACION_DESCRIPCION": "Additional charges apply for on-site installation.",
+        "ESQUEMA_CORTES": "Distribution and Cutting Scheme",
+        "ANCHO_ROLLO_LABEL": "Roll Width:",
+        "METRAJE_LINEAL_LABEL": "Estimated Linear Meterage:",
+        "MODAL_BTN_CONFIRMAR": "Confirm and Send",
+        "MODAL_BTN_GENERANDO": "Generating...",
+        "PLACEHOLDERS": {
+            "NOMBRE": "e.g. John Doe",
+            "TELEFONO": "e.g. +1 555 123 4567",
+            "EMAIL": "example@email.com"
+        },
+        "SERVICIOS": {
+            "polarizado": "Residential Window Tinting",
+            "litografia": "Bulk Lithography",
+            "gran-formato": "Large Format Printing",
+            "stickers": "Stickers & Decals"
+        },
+        "LABELS": {
+            "SERVICIO": "Service Type...",
+            "MATERIAL": "Material:",
+            "MARCA": "Brand:",
+            "ZONA": "Metropolitan Area:",
+            "PIEZAS_DIMENSIONES": "Piece Dimensions",
+            "ANCHO": "Width",
+            "ALTO": "Height",
+            "CANTIDAD": "Quantity"
+        },
+        "CANVAS": {
+            "DISTRIBUCION": "Roll Distribution (Max Height: {{alto}} cm)",
+            "PREVISUALIZACION_LIVE": "Live Preview",
+            "MATERIAL_CONSUMIDO": "Material Consumed: {{metros}} m ({{centimetros}} cm)",
+            "VALOR_M2": "SqM Price: ${{precio}}",
+            "PIEZA_NUM": "Piece #{{num}}",
+            "EXCESO_MAQUINARIA": "Machinery Excess",
+            "EXCESO_DETALLE": "One of the pieces exceeds the maximum roll width ({{alto}} cm)",
+            "ESTADO_VACIO": "Enter dimensions to preview cuts...",
+            "BTN_DESCARGAR": "Download cut scheme",
+            "EXITO_EXPORTAR": "Scheme successfully downloaded",
+            "ERR_EXPORTAR_TITULO": "Export Error",
+            "ERR_EXPORTAR_TEXTO": "Could not generate the scheme image at this time."
+        },
+        "WHATSAPP": {
+            "SALUDO": "Hello NeoDigiPrint, I automated my quote for the service of",
+            "DETALLES": "Plotter Details",
+            "ANCHO_ROLLO": "Selected Roll Width",
+            "CONSUMIDO": "Consumed Material",
+            "TOTAL": "Estimated Total",
+            "CORTES": "LINEAL",
+            "DESEO_CONFIRMAR": "I would like to confirm the distribution of the cuts!",
+            "NOTA_ADJUNTAR": "📌 PLEASE REMEMBER TO ATTACH THE IMAGE of the downloaded cut scheme to this chat.",
+            "SUGERENCIA_CORTE": "It is recommended to validate the installation margin (+1 cm) for the sent measurements."
+        },
+        "SUGERENCIA_MEDIDAS": "💡 Production note: We suggest adding 1 cm to your measurements to allow for a margin of error during installation and prevent the material from running short.",
+        "ROTACION": {
+            "OPTIMIZADA": "Auto Rotation (Min. Waste)",
+            "FIJA": "Fixed Orientation"
+        },
+        "NOTAS": {
+            "METRO_LINEAL_CORTE": "Note: Linear meter printed material is delivered in continuous rolls. Custom trimming/cutting is not included unless requested directly.",
+            "SIN_INSTALACION": "Notice: The current quote does not include installation service.",
+            "DATOS_INCOMPLETOS": "Enter complete dimensions or information to calculate the quote in real-time.",
+            "MUESTRA_SOLO_LOGUEADO": "To view the detailed cost breakdown and estimated price, please log into the system."
+        },
+        "TARJETAS": {
+            "UNA_CARA_TITULO": "Single Sided",
+            "UNA_CARA_DESC": "Full color front, blank back",
+            "DOS_CARAS_COT_TITULO": "Double Sided (Quote)",
+            "DOS_CARAS_COT_DESC": "Full color front, quote format back",
+            "DOS_CARAS_FULL_TITULO": "Double Sided Full Color",
+            "DOS_CARAS_FULL_DESC": "Full color both sides, glossy lamination",
+            "UV_MATE_TITULO": "Spot UV Finish",
+            "UV_MATE_DESC": "Matte finish with spot UV gloss"
+        },
+        "ESCALAS": {
+            "MILLAR_1": "1,000 units (1 Thousand)",
+            "MILLAR_2": "2,000 units (2 Thousand)",
+            "MILLAR_3": "3,000 units (3 Thousand)",
+            "MILLAR_5": "5,000 units (5 Thousand)",
+            "MILLAR_10": "10,000 units (10 Thousand)",
+            "UNIDADES_100": "100 units",
+            "UNIDADES_200": "200 units",
+            "UNIDADES_500": "500 units",
+            "UNIDADES_1000": "1,000 units"
+        },
+        "VALIDACIONES": {
+            "NOMBRE_REQUERIDO": "Full name is required.",
+            "TELEFONO_INVALIDO": "Enter a valid phone number (7 to 12 digits).",
+            "EMAIL_EMPTY": "Email address is required.",
+            "EMAIL_INVALIDO": "Enter a valid email address."
+        }
+    },
+    "CONFIRMACION": {
+        "TITULO": "Confirm change?",
+        "TEXTO": "All current dimensions and quantities you have added will be lost.",
+        "BTN_ACEPTAR": "Yes, change",
+        "BTN_CANCELAR": "Cancel"
+    },
+    "PORTAFOLIO": {
+        "TITULO": "Recent Projects",
+        "SUBTITULO": "Take a look at the quality of our prints and installations in real-world projects",
+        "BATMAN_JOKER_TITULO": "Balcony Wall Mural Installation (Batman & Joker)",
+        "BATMAN_JOKER_DESC": "Large format vinyl printing with precise glass seam matching.",
+        "POLARIZADO_TITULO": "Window Tinting & Solar Control Installation",
+        "POLARIZADO_DESC": "Thermal protection and solar control film installed on large windows.",
+        "STICKERS_TITULO": "Waterproof Die-Cut Stickers",
+        "STICKERS_DESC": "High-precision cutting on highly durable adhesive vinyl.",
+        "TARJETAS_TITULO": "Corporate Cards & Special Finishes",
+        "TARJETAS_DESC": "High-definition printing with special protective surface finishes."
+    },
+    "NOSOTROS": {
+        "TITULO": "About Us",
+        "PARRAFO_1": "We specialize in advertising printing, large format, and high-precision finish solutions.",
+        "PARRAFO_2": "We use premium materials and modern technology to guarantee color fidelity and long-lasting durability in every project.",
+        "VENTAJA_1": "High-definition printing across multiple substrates",
+        "VENTAJA_2": "Instant online quotes through our automated estimator",
+        "VENTAJA_3": "Personalized advice on materials and installation"
+    },
+    "CONTACTO": {
+        "TITULO": "Contact Us",
+        "SUBTITULO": "Have questions or a custom request? Speak directly with us",
+        "UBICACION_LABEL": "Bucaramanga - Santander",
+        "DIRECCION": "Bucaramanga - Santander, Colombia",
+        "WHATSAPP_LABEL": "Direct WhatsApp",
+        "EMAIL_LABEL": "Email Address",
+        "ACCION_TEXTO": "Personalized support for special quotes or large-scale projects.",
+        "BOTON_WHATSAPP": "Chat on WhatsApp"
+    },
+    "LOGIN": {
+        "LBL_PASS": "Password",
+        "PL_PASS": "Insert here your user password"
+    },
+    "ROLES": {
+        "ROL_SUPERADD": "Super Admin",
+        "ROL_ADMIN": "Administrator"
+    },
+    "CONFIGURACION": {
+        "CONFIG": "General Settings",
+        "CATALG": "And Services",
+        "TITULO": "Administrative Configuration",
+        "EMPRESA": {
+            "TITULO": "Company Information",
+            "NOMBRE": "Name",
+            "NIT": "Tax ID (NIT)",
+            "EMAIL": "Email Address"
+        },
+        "MOTORES": {
+            "TITULO": "Calculation Engines"
+        }
+    },
+    "ADMIN_CATALOGO": {
+        "TITULO_SERVICIOS": "Services Management",
+        "TITULO_PRODUCTOS": "Products of {{ (servicio | translate) }}",
+        "TITULO_CONFIG": "Configuration of {{producto}}",
+        "NUEVO_SERVICIO": "New Service",
+        "NUEVO_PRODUCTO": "New Product",
+        "NUEVA_MARCA": "New Brand",
+        "NUEVA_PRESENTACION": "New Presentation",
+        "NUEVO_MATERIAL": "New Material",
+        "COL_CODIGO": "Code",
+        "COL_NOMBRE": "Name",
+        "COL_DESCRIPCION": "Description",
+        "COL_MOTOR": "Calculation Engine",
+        "COL_ACCIONES": "Actions",
+        "VER_PRODUCTOS": "View Products",
+        "CONFIGURAR": "Configure",
+        "ANCHO_COMERCIAL": "Commercial Width (cm)",
+        "ANCHO_UTIL": "Usable Width (cm)",
+        "LARGO_ROLLO": "Roll Length (m)",
+        "PANELIZADO": "Allows Paneling"
+    },
+    "DETALLE_PRODUCTO": {
+        "TABS": {
+            "MARCAS": "Brands",
+            "PRESENTACIONES": "Presentations",
+            "MATERIALES": "Materials"
+        },
+        "MARCAS": {
+            "TITULO": "Product Brands",
+            "BTN_NUEVA": "New Brand",
+            "NUEVA": "New Brand",
+            "EDITAR": "Edit Brand",
+            "NO_RESULTADOS": "No brands configured for this product."
+        },
+        "PRESENTACIONES": {
+            "TITULO": "Product Presentations",
+            "BTN_NUEVA": "New Presentation",
+            "NUEVA": "New Presentation",
+            "EDITAR": "Edit Presentation",
+            "NO_RESULTADOS": "No presentations configured for this product."
+        },
+        "MATERIALES": {
+            "TITULO": "Materials and Substrates",
+            "BTN_NUEVO": "New Material",
+            "NUEVO": "New Material",
+            "EDITAR": "Edit Material",
+            "COL_ANCHO_MAX": "Max Width (cm)",
+            "COL_ALTO_MAX": "Max Height (cm)",
+            "NO_RESULTADOS": "No materials configured for this product."
+        }
+    }
+}

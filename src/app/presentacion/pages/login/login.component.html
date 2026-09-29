@@ -1,0 +1,30 @@
+<div class="login vh-100 d-flex align-items-center justify-content-center">
+  <div class="card bg-dark border-secondary shadow-lg p-4 w-100" style="max-width: 400px;
+    box-shadow: -0.1rem -0.1rem 0.25rem 0.25rem #ccc;">
+    <div class="card-body">
+      <div class="text-center mb-4">
+        <h2 class="h4 fw-bold text-success mb-1">{{ 'APP_INFO.LBL_APPNAME' | translate }}</h2>
+        <p class="text-light">{{ 'NAVBAR.INICIAR_SESION' | translate }}</p>
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger small p-2 text-center">
+        {{ errorMessage }}
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="vstack gap-3">
+        <div class="form-group">
+          <label class="small text-light">{{ 'CONTACTO.EMAIL_LABEL' | translate }}</label>
+          <input type="email" formControlName="username"
+            [placeholder]="'CALCULADORA.VALIDACIONES.EMAIL_EMPTY' | translate"
+            class="form-control bg-black text-light border-secondary">
+        </div>
+        <div class="form-group">
+          <label class="small text-light">{{ 'LOGIN.LBL_PASS' | translate }}</label>
+          <input type="password" formControlName="password" [placeholder]="'LOGIN.PL_PASS' | translate"
+            class="form-control bg-black text-light border-secondary">
+        </div>
+        <button type="submit" [disabled]="loading" class="btn btn-success">
+          {{ loading ? ('MENSAJES.LBL_CARGANDO' | translate) : ('NAVBAR.INICIAR_SESION' | translate) }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

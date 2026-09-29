@@ -1,0 +1,339 @@
+{
+    "primeng": {
+        "dayNamesMin": [
+            "Do",
+            "Lu",
+            "Ma",
+            "Mi",
+            "Ju",
+            "Vi",
+            "Sa"
+        ],
+        "monthNames": [
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"
+        ]
+    },
+    "GLOBAL": {
+        "LBL_ESP": "Español",
+        "LBL_ING": "Inglés",
+        "LBL_SELECCIONE": "Seleccione una opción...",
+        "LBL_BUSCADOR": "Buscador",
+        "LBL_BUSCAR": "Buscar",
+        "LBL_ESTADO": "Estado",
+        "ACTIVO":"Activo",
+        "INACTIVO":"Inactivo",
+        "BTN_VOLVER":"Volver"
+    },
+    "APP_INFO": {
+        "LBL_APPNAME": "NEO | Tu Solución Creativa",
+        "LBL_V.S": "1.0.0",
+        "LBL_VERSION": "Versión",
+        "LBL_COPYRIGHT": "Copyright",
+        "LBL_FOOTER": "Todos los Derechos Reservados."
+    },
+    "NAVBAR": {
+        "TITULO": "SOLUCIONES CREATIVAS",
+        "BUSCAR_PLACEHOLDER": "Buscar un servicio de producción creativa...",
+        "INICIAR_SESION": "Iniciar Sesión"
+    },
+    "SIDEBAR": {
+        "INICIO": "Inicio",
+        "CALCULADORA": "Calculadora",
+        "CONFIGURACION": "Configuración",
+        "CERRAR_SESION": "Cerrar Sesión"
+    },
+    "BOTONES": {
+        "BTN_GUARDAR": "Guardar",
+        "BTN_CANCELAR": "Cancelar",
+        "BTN_GENERAR": "Generar",
+        "BTN_CLEAR": "Limpiar",
+        "BTN_VOLVER": "Volver"
+    },
+    "MENSAJES": {
+        "LBL_SEARCH": "Escriba aquí para buscar",
+        "LBL_CARGANDO": "Cargando..."
+    },
+    "SERVICIOS": {
+        "SECCION_TITULO": "Nuestros Servicios",
+        "SECCION_SUBTITULO": "Selecciona un servicio para cotizar automáticamente en tiempo real",
+        "BOTON_CALCULAR": "Calcular Servicio",
+        "BOTON_COTIZAR": "Cotizar Servicio",
+        "NO_RESULTADOS": "No se encontraron servicios que coincidan con la búsqueda.",
+        "GRAN_FORMATO": {
+            "TITULO": "Impresión Digital Gran Formato",
+            "DETALLES": "Calidad excepcional en lona, vinilo y estructuras publicitarias de alto impacto."
+        },
+        "TARJETERIA": {
+            "TITULO": "Volantes y Tarjetería",
+            "DETALLES": "Tarjetas de presentación, volantes y papelería corporativa con acabados de primera."
+        },
+        "POLARIZADO": {
+            "TITULO": "Polarizado a Domicilio",
+            "DETALLES": "Alta performance en control lumínico, privacidad y protección UV para tus espacios."
+        },
+        "STICKERS": {
+            "TITULO": "Stickers y Calcomanías Personalizadas",
+            "DETALLES": "Etiquetas autoadhesivas troqueladas con alta resistencia y diseños únicos."
+        },
+        "VINILARQUITEC": {
+            "TITULO": "Vinilado Arquitectónico",
+            "DETALLES": "Soluciones de recubrimiento vinílico de alta calidad para diseño de interiores y decoración."
+        }
+    },
+    "CALCULADORA": {
+        "TITULO": "📐 Calculadora de precios Dinámica",
+        "SUBTITULO": "Configura las especificaciones de tu proyecto para obtener una cotización estimada.",
+        "CARGANDO_INICIAL": "Cargando configuraciones iniciales...",
+        "ACTUALIZANDO_MATERIALES": "Actualizando materiales...",
+        "SIN_MATERIALES": "No hay materiales disponibles para este servicio",
+        "LBL_SELECCIONAR": "Seleccione una opción...",
+        "LBL_SERVICIO": "Servicio",
+        "LBL_PRODUCTO": "Producto",
+        "LBL_MATERIAL": "Material",
+        "LBL_LAMINADO": "Tipo de Laminado",
+        "LBL_VARIANTE": "Variante / Color",
+        "LBL_ACABADO": "Tipo de Acabado",
+        "SIN_LAMINADO": "Sin Laminado",
+        "SIN_VARIANTE": "Sin Variante Especial",
+        "SIN_ACABADO": "Sin Acabado Especial",
+        "ALERTA_TITULO": "Nota de entrega",
+        "ALERTA_SIN_INSTALACION": "Material no instalado. Se entrega el metraje continuo completo (no cortado). Para cortes especiales, solicítelo con su asesor.",
+        "TABLA_TITULO": "Medidas de las Piezas",
+        "BTN_AGREGAR_PIEZA": "Agregar Pieza",
+        "COL_ANCHO": "Ancho",
+        "COL_ALTO": "Alto",
+        "COL_CANT": "Cant.",
+        "COL_PANELIZADO": "Panelizado",
+        "PANEL_VERTICAL": "Vertical",
+        "PANEL_HORIZONTAL": "Horizontal",
+        "CON_INSTALACION": "Con Instalación Incluida",
+        "SIN_INSTALACION": "Sin Instalación (Solo Material)",
+        "LBL_CANTIDAD": "Cantidad de Piezas",
+        "LBL_ADICIONALES": "Servicios Adicionales",
+        "TOTAL_ESTIMADO": "Total Estimado",
+        "BTN_WHATSAPP": "Cotizar por WhatsApp",
+        "MODAL_TITULO": "Confirmar Cotización",
+        "MODAL_SUBTITULO": "Ingresa tus datos para enviarte la cotización vía WhatsApp",
+        "MODAL_NOMBRE": "Nombre Completo",
+        "MODAL_TELEFONO": "Teléfono / WhatsApp",
+        "MODAL_EMAIL": "Correo Electrónico (Opcional)",
+        "MODAL_BTN_CANCELAR": "Cancelar",
+        "MODAL_BTN_WHATSAPP": "Enviar a WhatsApp",
+        "LBL_MATERIAL_VARIANTE": "Material / Variante",
+        "TIPO_IMPRESION_ACABADO": "Tipo de Impresión / Acabado",
+        "ESCALAS_CANTIDAD": "Cantidad de Unidades (Millares / Escalas)",
+        "UNIDADES": "Unidades",
+        "BTN_AGREGAR_OTRA_MEDIDA": "+ Agregar otra medida",
+        "INSTALACION_TITULO": "¿Requiere servicio de instalación?",
+        "INSTALACION_DESCRIPCION": "Aplica cargos adicionales por instalación en sitio.",
+        "ESQUEMA_CORTES": "Esquema de Distribución y Cortes",
+        "ANCHO_ROLLO_LABEL": "Ancho de Rollo:",
+        "METRAJE_LINEAL_LABEL": "Metraje Lineal Estimado:",
+        "MODAL_BTN_CONFIRMAR": "Confirmar y Enviar",
+        "MODAL_BTN_GENERANDO": "Generando...",
+        "PLACEHOLDERS": {
+            "NOMBRE": "Ej. Juan Pérez",
+            "TELEFONO": "Ej. 3001234567",
+            "EMAIL": "ejemplo@correo.com"
+        },
+        "SERVICIOS": {
+            "polarizado": "Polarizado Residencial",
+            "litografia": "Litografía por Volumen",
+            "gran-formato": "Impresión Gran Formato",
+            "stickers": "Stickers / Calcomanías"
+        },
+        "LABELS": {
+            "SERVICIO": "Tipo de Servicio...",
+            "MATERIAL": "Material:",
+            "MARCA": "Marca:",
+            "ZONA": "Zona Metropolitana:",
+            "PIEZAS_DIMENSIONES": "Dimensiones de las Piezas",
+            "ANCHO": "Ancho",
+            "ALTO": "Alto",
+            "CANTIDAD": "Cantidad"
+        },
+        "CANVAS": {
+            "DISTRIBUCION": "Distribución en Rollo (Alto Máx: {{alto}} cm)",
+            "PREVISUALIZACION_LIVE": "Previsualización Live",
+            "MATERIAL_CONSUMIDO": "Material Consumido: {{metros}} m ({{centimetros}} cm)",
+            "VALOR_M2": "Valor m²: ${{precio}}",
+            "PIEZA_NUM": "Pieza #{{num}}",
+            "EXCESO_MAQUINARIA": "Exceso de Maquinaria",
+            "EXCESO_DETALLE": "Una de las piezas supera el ancho máximo del rollo ({{alto}} cm)",
+            "ESTADO_VACIO": "Ingrese dimensiones para previsualizar los cortes...",
+            "BTN_DESCARGAR": "Descargar esquema de cortes",
+            "EXITO_EXPORTAR": "Esquema descargado con éxito",
+            "ERR_EXPORTAR_TITULO": "Error al exportar",
+            "ERR_EXPORTAR_TEXTO": "No se pudo generar la imagen del esquema en este momento."
+        },
+        "WHATSAPP": {
+            "SALUDO": "Hola NeoDigiPrint, automaticé mi cotización para el servicio de",
+            "DETALLES": "Detalles del Plotter",
+            "ANCHO_ROLLO": "Ancho del Rollo Seleccionado",
+            "CONSUMIDO": "Material Consumido",
+            "TOTAL": "Total Estimado",
+            "CORTES": "LINEALES",
+            "DESEO_CONFIRMAR": "¡Deseo confirmar la distribución de los cortes!",
+            "NOTA_ADJUNTAR": "📌 RECUERDA ADJUNTAR LA IMAGEN del esquema de cortes descargado a este chat.",
+            "SUGERENCIA_CORTE": "A las medidas enviadas se les recomienda validar el margen de instalación (+1 cm)."
+        },
+        "SUGERENCIA_MEDIDAS": "💡 Nota de producción: Te sugerimos sumarle 1 cm a tus medidas para tener margen de maniobra en la instalación y evitar que el material quede corto.",
+        "ROTACION": {
+            "OPTIMIZADA": "Rotación Auto (Menor desperdicio)",
+            "FIJA": "Orientación Fija"
+        },
+        "NOTAS": {
+            "METRO_LINEAL_CORTE": "Nota: El material impreso por metro lineal se entrega en rollo/pliego continuo. No se entregará con refilado o corte individual a menos que sea solicitado directamente.",
+            "SIN_INSTALACION": "Atención: La cotización actual no incluye el servicio de instalación.",
+            "DATOS_INCOMPLETOS": "Ingrese las dimensiones o datos completos para calcular la cotización en vivo.",
+            "MUESTRA_SOLO_LOGUEADO": "Para visualizar el desglose detallado de valores y el precio estimado, por favor inicia sesión en el sistema."
+        },
+        "TARJETAS": {
+            "UNA_CARA_TITULO": "Una Cara",
+            "UNA_CARA_DESC": "Full color frente, reverso blanco",
+            "DOS_CARAS_COT_TITULO": "Dos Caras (Cotización)",
+            "DOS_CARAS_COT_DESC": "Full color frente, reverso para cotización",
+            "DOS_CARAS_FULL_TITULO": "Dos Caras Full Color",
+            "DOS_CARAS_FULL_DESC": "Full color ambas caras, plastificado brillante",
+            "UV_MATE_TITULO": "Efecto UV Reserva",
+            "UV_MATE_DESC": "Impresión mate con brillo UV localizado"
+        },
+        "ESCALAS": {
+            "MILLAR_1": "1,000 unidades (1 Millar)",
+            "MILLAR_2": "2,000 unidades (2 Millares)",
+            "MILLAR_3": "3,000 unidades (3 Millares)",
+            "MILLAR_5": "5,000 unidades (5 Millares)",
+            "MILLAR_10": "10,000 unidades (10 Millares)",
+            "UNIDADES_100": "100 unidades",
+            "UNIDADES_200": "200 unidades",
+            "UNIDADES_500": "500 unidades",
+            "UNIDADES_1000": "1,000 unidades"
+        },
+        "VALIDACIONES": {
+            "NOMBRE_REQUERIDO": "El nombre es obligatorio.",
+            "TELEFONO_INVALIDO": "Ingrese un teléfono válido (entre 7 y 12 dígitos).",
+            "EMAIL_EMPTY": "Ingrese un correo electrónico.",
+            "EMAIL_INVALIDO": "Ingrese un correo electrónico válido."
+        }
+    },
+    "CONFIRMACION": {
+        "TITULO": "¿Confirmar cambio?",
+        "TEXTO": "Todas las dimensiones y cantidades agregadas se perderán.",
+        "BTN_ACEPTAR": "Sí, cambiar",
+        "BTN_CANCELAR": "Cancelar"
+    },
+    "PORTAFOLIO": {
+        "TITULO": "Trabajos Realizados",
+        "SUBTITULO": "Echa un vistazo a la calidad de nuestras impresiones e instalaciones en proyectos reales",
+        "BATMAN_JOKER_TITULO": "Instalación Mural en Balcón (Batman & Joker)",
+        "BATMAN_JOKER_DESC": "Impresión de gran formato en vinilo con empalme exacto sobre vidrio.",
+        "POLARIZADO_TITULO": "Instalación de Polarizado y Control Solar",
+        "POLARIZADO_DESC": "Película de protección térmica y control solar instalada en ventanales.",
+        "STICKERS_TITULO": "Stickers Troquelados Impermeables",
+        "STICKERS_DESC": "Corte de alta precisión sobre vinilo adhesivo de alta resistencia.",
+        "TARJETAS_TITULO": "Tarjetería Corporativa y Acabados",
+        "TARJETAS_DESC": "Impresión de alta definición con acabados especiales de protección."
+    },
+    "NOSOTROS": {
+        "TITULO": "Sobre Nosotros",
+        "PARRAFO_1": "Nos especializamos en soluciones de impresión publicitaria, gran formato y acabados de alta precisión.",
+        "PARRAFO_2": "Utilizamos insumos de excelente calidad y tecnología moderna para garantizar la durabilidad y fidelidad del color en cada proyecto.",
+        "VENTAJA_1": "Impresión de alta definición en múltiples sustratos",
+        "VENTAJA_2": "Cotización inmediata a través de nuestro cotizador en línea",
+        "VENTAJA_3": "Asesoría personalizada en material e instalación"
+    },
+    "CONTACTO": {
+        "TITULO": "Contáctanos",
+        "SUBTITULO": "¿Tienes dudas o un requerimiento especial? Habla directamente con nosotros",
+        "UBICACION_LABEL": "Bucaramanga - Santander",
+        "DIRECCION": "Bucaramanga - Santander, Colombia",
+        "WHATSAPP_LABEL": "WhatsApp Directo",
+        "EMAIL_LABEL": "Correo Electrónico",
+        "ACCION_TEXTO": "Atención personalizada para cotizaciones especiales o proyectos a gran escala.",
+        "BOTON_WHATSAPP": "Escribir por WhatsApp"
+    },
+    "LOGIN": {
+        "LBL_PASS": "Contraseña",
+        "PL_PASS": "Ingrese aquí la contraseña de su usuario"
+    },
+    "ROLES": {
+        "ROL_SUPERADD": "Super Administrador",
+        "ROL_ADMIN": "Administrador"
+    },
+    "CONFIGURACION": {
+        "CONFIG": "Configuración General",
+        "CATALG": "Catálogos y Servicios",
+        "TITULO": "Configuración Administrativa",
+        "EMPRESA": {
+            "TITULO": "Información de la Empresa",
+            "NOMBRE": "Nombre",
+            "NIT": "NIT",
+            "EMAIL": "Correo Electrónico"
+        },
+        "MOTORES": {
+            "TITULO": "Motores de Cálculo"
+        }
+    },
+    "ADMIN_CATALOGO": {
+        "TITULO_SERVICIOS": "Administración de Servicios",
+        "TITULO_PRODUCTOS": "Productos de {{ (servicio | translate) }}",
+        "TITULO_CONFIG": "Configuración de {{producto}}",
+        "NUEVO_SERVICIO": "Nuevo Servicio",
+        "NUEVO_PRODUCTO": "Nuevo Producto",
+        "NUEVA_MARCA": "Nueva Marca",
+        "NUEVA_PRESENTACION": "Nueva Presentación",
+        "NUEVO_MATERIAL": "Nuevo Material",
+        "COL_CODIGO": "Código",
+        "COL_NOMBRE": "Nombre",
+        "COL_DESCRIPCION": "Descripción",
+        "COL_MOTOR": "Motor de Cálculo",
+        "COL_ACCIONES": "Acciones",
+        "VER_PRODUCTOS": "Ver Productos",
+        "CONFIGURAR": "Configurar",
+        "ANCHO_COMERCIAL": "Ancho Comercial (cm)",
+        "ANCHO_UTIL": "Ancho Útil (cm)",
+        "LARGO_ROLLO": "Largo Rollo (m)",
+        "PANELIZADO": "Permite Panelizado"
+    },
+    "DETALLE_PRODUCTO": {
+        "TABS": {
+            "MARCAS": "Marcas",
+            "PRESENTACIONES": "Presentaciones",
+            "MATERIALES": "Materiales"
+        },
+        "MARCAS": {
+            "TITULO": "Marcas del Producto",
+            "BTN_NUEVA": "Nueva Marca",
+            "NUEVA": "Nueva Marca",
+            "EDITAR": "Editar Marca",
+            "NO_RESULTADOS": "No hay marcas configuradas para este producto."
+        },
+        "PRESENTACIONES": {
+            "TITULO": "Presentaciones del Producto",
+            "BTN_NUEVA": "Nueva Presentación",
+            "NUEVA": "Nueva Presentación",
+            "EDITAR": "Editar Presentación",
+            "NO_RESULTADOS": "No hay presentaciones configuradas para este producto."
+        },
+        "MATERIALES": {
+            "TITULO": "Materiales y Sustratos",
+            "BTN_NUEVO": "Nuevo Material",
+            "NUEVO": "Nuevo Material",
+            "EDITAR": "Editar Material",
+            "COL_ANCHO_MAX": "Ancho Máx (cm)",
+            "COL_ALTO_MAX": "Alto Máx (cm)",
+            "NO_RESULTADOS": "No hay materiales configurados para este producto."
+        }
+    }
+}

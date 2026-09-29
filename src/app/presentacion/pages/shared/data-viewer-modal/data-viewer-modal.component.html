@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-mb-12" *ngIf="tipo == 'excel'">
+    <div class="col-mb-12"><br></div>
+    <div class="d-flex justify-content-center">
+      <div class="col-mb-12" style="overflow-y: auto; width: calc(100% - 32px); flex: none; max-height: 70vh;">
+        <ul class="nav nav-tabs mb-3" *ngIf="sheets.length > 1">
+          <li class="nav-item" *ngFor="let sheet of sheets">
+            <a class="nav-link" [class.active]="activeSheet === sheet" (click)="cambiarHoja(sheet)"
+              style="cursor: pointer;">
+              {{sheet}}
+            </a>
+          </li>
+        </ul>
+        <div class="table-responsive" style="overflow: unset;">
+          <table class="table table-bordered table-sm table-hover">
+            <tbody>
+              <tr *ngFor="let row of obtenerDatosHojaActiva(); let i = index" [class.table-secondary]="i === 0">
+                <td class="text-center" *ngFor="let cell of row" [class.font-weight-bold]="i === 0">
+                  {{cell}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-mb-12" *ngIf="tipo == 'pdf'">
+    <div class="col-mb-12">
+      <iframe [src]="pdfBlobUrl" style="border: none;min-width: 100%;min-height: 80vh;width: auto;height: auto;">
+      </iframe>
+    </div>
+  </div>
+  <div class="col-mb-12">
+    <div class="col-md-12 col-sm-12 modal-footer justify-content-center ">
+      <button type="button" class="btn btn-success" (click)="descargarArchivo()">
+        <i class="fas fa-download"></i> {{'BTN_DESCARGAR' | translate}}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="cerrar()">
+        {{'BTN_CERRAR' | translate}}
+      </button>
+    </div>
+  </div>
+</div>

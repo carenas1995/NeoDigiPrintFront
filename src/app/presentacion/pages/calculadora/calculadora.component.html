@@ -1,0 +1,298 @@
+<div class="container-fluid calculadora-container py-4 text-light">
+  <div *ngIf="cargando"
+    class="alert bg-dark alert-dark border-secondary text-center py-3 mb-4 shadow-sm d-flex align-items-center justify-content-center gap-2">
+    <div class="spinner-border spinner-border-sm text-success" role="status"></div>
+    <span class="small fw-semibold text-light">{{ 'CALCULADORA.CARGANDO_INICIAL' | translate }}</span>
+  </div>
+  <div class="card bg-dark border-secondary shadow-lg mb-4" *ngIf="!cargando">
+    <div class="card-body p-4">
+      <h2 class="h5 mb-4 text-success d-flex align-items-center gap-2">
+        {{ 'CALCULADORA.TITULO' | translate }}
+      </h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <label class="form-label small text-uppercase fw-semibold">
+            {{ 'CALCULADORA.LBL_SERVICIO' | translate }}
+          </label>
+          <p-dropdown [options]="servicios" [(ngModel)]="servicioIdSeleccionado" optionLabel="nombre" optionValue="id"
+            [placeholder]="'CALCULADORA.LBL_SELECCIONAR' | translate" (onChange)="onServicioChange()"
+            styleClass="w-100 bg-black border border-secondary rounded text-light"
+            panelStyleClass="bg-dark text-light border border-secondary shadow-lg rounded" appendTo="body">
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">
+                {{ selectedItem.nombre | translate }}
+              </div>
+            </ng-template>
+            <ng-template let-servicio pTemplate="item">
+              <div>
+                {{ servicio.nombre | translate }}
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+        <div class="col-12 col-md-4" *ngIf="productos.length > 0">
+          <label class="form-label small text-uppercase fw-semibold">
+            {{ 'CALCULADORA.LBL_PRODUCTO' | translate }}
+          </label>
+          <p-dropdown [options]="productos" [(ngModel)]="productoIdSeleccionado" optionLabel="nombre" optionValue="id"
+            [placeholder]="'CALCULADORA.LBL_SELECCIONAR' | translate" (onChange)="onProductoChange()"
+            styleClass="w-100 bg-black border border-secondary rounded text-light"
+            panelStyleClass="bg-dark text-light border border-secondary shadow-lg rounded" appendTo="body">
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">
+                {{ selectedItem.nombre | translate }}
+              </div>
+            </ng-template>
+            <ng-template let-servicio pTemplate="item">
+              <div>
+                {{ servicio.nombre | translate }}
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+        <div class="col-12 col-md-4" *ngIf="materiales.length > 0">
+          <label class="form-label small text-uppercase fw-semibold">
+            {{ 'CALCULADORA.LBL_MATERIAL_VARIANTE' | translate }}
+          </label>
+          <p-dropdown [options]="materiales" [(ngModel)]="materialIdSeleccionado" optionLabel="nombre" optionValue="id"
+            [placeholder]="'CALCULADORA.LBL_SELECCIONAR' | translate" (onChange)="onMaterialChange()"
+            styleClass="w-100 bg-black border border-secondary rounded text-light"
+            panelStyleClass="bg-dark text-light border border-secondary shadow-lg rounded" appendTo="body">
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">
+                {{ selectedItem.nombre | translate }}
+              </div>
+            </ng-template>
+            <ng-template let-servicio pTemplate="item">
+              <div>
+                {{ servicio.nombre | translate }}
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card bg-dark border-secondary shadow-lg mb-4" *ngIf="esTarjeteria || esVolantes">
+    <div class="card-body p-4">
+      <h3 class="h6 mb-3 text-success d-flex align-items-center gap-2">
+        <span class="spinner-grow spinner-grow-sm text-success" role="status"></span>
+        {{ 'CALCULADORA.TIPO_IMPRESION_ACABADO' | translate }}
+      </h3>
+      <div class="row g-3 mb-4">
+        <div class="col-12 col-sm-6 col-lg-3" *ngFor="let opt of opcionesImpresionTarjetas">
+          <div (click)="tipoImpresionTarjeteria = opt.id; ejecutarCalculoEnVivo()"
+            class="p-3 rounded border cursor-pointer transition h-100 bg-black"
+            [ngClass]="tipoImpresionTarjeteria === opt.id ? 'border-success bg-success bg-opacity-10 shadow' : 'border-secondary'">
+            <h4 class="h6 fw-bold text-light mb-1">{{ opt.nombreKey | translate }}</h4>
+            <p class="small  mb-0">{{ opt.descripcionKey | translate }}</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="h6 mb-3 text-success d-flex align-items-center gap-2">
+        <span class="spinner-grow spinner-grow-sm text-success" role="status"></span>
+        {{ 'CALCULADORA.ESCALAS_CANTIDAD' | translate }}
+      </h3>
+      <div class="d-flex flex-wrap gap-2">
+        <button *ngFor="let escala of escalasCantidad" type="button"
+          (click)="cantidadUnidades = escala.valor; ejecutarCalculoEnVivo()" class="btn btn-sm px-3 py-2 fw-semibold"
+          [ngClass]="cantidadUnidades === escala.valor ? 'btn-success text-dark fw-bold shadow' : 'btn-outline-secondary text-light'">
+          {{ escala.valor | number }} {{ 'CALCULADORA.UNIDADES' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card bg-dark border-secondary shadow-lg mb-4"
+    *ngIf="configuracionActual && !esTarjeteria && !esVolantes && !esStickers">
+    <div class="card-body p-4">
+      <div
+        class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+        <h3 class="h6 mb-0 text-success d-flex align-items-center gap-2">
+          <span>📐</span> {{ 'CALCULADORA.TABLA_TITULO' | translate }}
+        </h3>
+        <button type="button" (click)="agregarPieza()" class="btn btn-success btn-sm fw-bold px-3 py-2">
+          {{ 'CALCULADORA.BTN_AGREGAR_OTRA_MEDIDA' | translate }}
+        </button>
+      </div>
+      <div class="vstack gap-3">
+        <div *ngFor="let pieza of piezasMedidas; let i = index" class="p-3 bg-black rounded border border-secondary">
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <label class="form-label small text-uppercase fw-semibold">
+                {{ 'CALCULADORA.LABELS.ANCHO' | translate }} <span class="text-success">(cm)</span>
+              </label>
+              <input type="number" [(ngModel)]="pieza.ancho" (ngModelChange)="ejecutarCalculoEnVivo()" min="1"
+                class="form-control bg-dark border-secondary text-light">
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <label class="form-label small text-uppercase fw-semibold">
+                {{ 'CALCULADORA.LABELS.ALTO' | translate }} <span class="text-success">(cm)</span>
+              </label>
+              <input type="number" [(ngModel)]="pieza.alto" (ngModelChange)="ejecutarCalculoEnVivo()" min="1"
+                class="form-control bg-dark border-secondary text-light">
+            </div>
+            <div class="col-12 col-sm-8 col-lg-3">
+              <label class="form-label small text-uppercase fw-semibold">
+                {{ 'CALCULADORA.LABELS.CANTIDAD' | translate }}
+              </label>
+              <input type="number" [(ngModel)]="pieza.cantidad" (ngModelChange)="ejecutarCalculoEnVivo()" min="1"
+                class="form-control bg-dark border-secondary text-light">
+            </div>
+            <div class="col-12 col-sm-4 col-lg-1">
+              <button type="button" (click)="eliminarPieza(i)" [disabled]="piezasMedidas.length === 1"
+                class="btn btn-outline-danger btn-sm w-100" title="Eliminar medida">
+                🗑️
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="piezaSuponeExceso"
+        class="alert alert-warning mt-3 py-2 px-3 small d-flex align-items-center gap-2 mb-0">
+        <span>⚠️</span>
+        <span>{{ 'CALCULADORA.CANVAS.EXCESO_DETALLE' | translate:{ alto: anchoMaximoMaterial } }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="row g-4 mb-4" *ngIf="configuracionActual">
+    <div class="col-12 col-lg-6" *ngIf="!esViniloArquitectonico && configuracionActual.permiteInstalacion">
+      <div class="card bg-dark border-secondary shadow-lg h-100">
+        <div class="card-body p-4 d-flex justify-content-between align-items-center">
+          <div>
+            <h4 class="h6 fw-semibold text-light mb-1">🛠️ {{ 'CALCULADORA.INSTALACION_TITULO' | translate }}</h4>
+            <p class="small text-light mb-0">{{ 'CALCULADORA.INSTALACION_DESCRIPCION' | translate }}</p>
+          </div>
+          <p-inputSwitch [(ngModel)]="requiereInstalacion" (onChange)="ejecutarCalculoEnVivo()"></p-inputSwitch>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6" *ngIf="logueado && adicionalesDisponibles.length > 0">
+      <div class="card bg-dark border-secondary shadow-lg h-100">
+        <div class="card-body p-4">
+          <h4 class="h6 fw-semibold text-success mb-3">✨ {{ 'CALCULADORA.LBL_ADICIONALES' | translate }}</h4>
+          <div class="d-flex flex-wrap gap-2">
+            <button *ngFor="let ad of adicionalesDisponibles" type="button" (click)="toggleAdicional(ad.id)"
+              class="btn btn-sm"
+              [ngClass]="adicionalesSeleccionados.includes(ad.id) ? 'btn-success text-dark fw-bold' : 'btn-outline-secondary text-light'">
+              {{ ad.nombre }} <span class="small opacity-75">(+${{ ad.precio | number }})</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card bg-dark border-secondary shadow-lg mb-4"
+    *ngIf="configuracionActual && !esTarjeteria && !esVolantes && piezasValidas">
+    <div class="card-body p-4" #corteCanvas>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="h6 mb-0 text-success d-flex align-items-center gap-2">
+          <span>📐</span> {{ 'CALCULADORA.ESQUEMA_CORTES' | translate }}
+        </h3>
+      </div>
+      <div *ngIf="!requiereInstalacion"
+        class="alert alert-warning py-2 px-3 small d-flex align-items-center gap-2 mb-3">
+        <span>💡</span>
+        <span>{{ 'CALCULADORA.NOTAS.METRO_LINEAL_CORTE' | translate }}</span>
+      </div>
+      <div class="bg-black p-3 rounded border border-secondary overflow-hidden">
+        <div class="small mb-3 d-flex justify-content-between border-bottom border-secondary pb-2">
+          <span>{{ 'CALCULADORA.ANCHO_ROLLO_LABEL' | translate }} <strong class="text-light">{{ anchoMaximoMaterial }}
+              cm</strong></span>
+          <span>{{ 'CALCULADORA.METRAJE_LINEAL_LABEL' | translate }} <strong class="text-success">{{
+              metrajeLinealTotal.metros }} m ({{ metrajeLinealTotal.centimetros }} cm)</strong></span>
+        </div>
+
+        <!-- Contenedor adaptativo con scroll horizontal controlado -->
+        <div class="position-relative rounded overflow-x-auto bg-black border border-secondary" style="height: 330px;">
+          <div class="position-relative bg-dark bg-opacity-25"
+            [style.width.px]="metrajeLinealTotal.centimetros > 0 ? metrajeLinealTotal.centimetros : 1000"
+            [style.height.px]="anchoMaximoMaterial" style="min-width: 100%; transform-origin: top left;">
+
+            <div *ngFor="let piezaVisual of piezasOptimizedForCanvas"
+              class="corte-horizontal-box position-absolute rounded d-flex align-items-center justify-content-center font-monospace small border border-success bg-success bg-opacity-10 text-light"
+              [style.left.px]="piezaVisual.x" [style.top.px]="piezaVisual.y" [style.width.px]="piezaVisual.ancho"
+              [style.height.px]="piezaVisual.alto" style="font-size: 10px !important;">
+              {{ piezaVisual.ancho }}x{{ piezaVisual.alto }}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card bg-dark border border-success shadow-lg mb-4" *ngIf="resultadoCalculo">
+    <div class="card-body p-4 p-md-5 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-4">
+      <div class="text-center text-sm-start" *ngIf="logueado">
+        <span
+          class="small fw-bold text-uppercase tracking-wider text-success d-flex align-items-center justify-content-center justify-content-sm-start gap-2 mb-1">
+          <span class="spinner-grow spinner-grow-sm text-success" role="status"></span>
+          {{ 'CALCULADORA.TOTAL_ESTIMADO' | translate }}
+        </span>
+        <div class="display-6 fw-bold text-light mb-1">
+          ${{ resultadoCalculo.total | number:'1.0-2' }} <span class="fs-6 fw-normal ">COP</span>
+        </div>
+        <p class="small  mb-0" *ngIf="resultadoCalculo.detalle">
+          {{ resultadoCalculo.detalle }}
+        </p>
+      </div>
+      <button type="button" (click)="abrirModalContacto()"
+        class="btn btn-whatsapp fw-bold px-4 py-3 text-dark text-uppercase shadow w-100 w-sm-auto">
+        💬 {{ 'CALCULADORA.BTN_WHATSAPP' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <p-dialog [(visible)]="mostrarModalCliente" [modal]="true" [style]="{width: '90vw', maxWidth: '450px'}"
+    [draggable]="false" [resizable]="false" styleClass="dark-dialog"
+    contentStyleClass="bg-light text-dark p-4 rounded-bottom"
+    headerStyleClass="bg-dark text-light border-bottom border-secondary p-4 rounded-top"
+    footerStyleClass="bg-dark text-light border-top border-secondary px-4 py-3 rounded-bottom">
+    <ng-template pTemplate="header">
+      <div class="h5 mb-0 text-dark fw-bold d-flex align-items-center gap-2">
+        <span>📋</span> {{ 'CALCULADORA.MODAL_TITULO' | translate }}
+      </div>
+    </ng-template>
+    <div class="py-2">
+      <label class="small  mb-4">{{ 'CALCULADORA.MODAL_SUBTITULO' | translate }}</label>
+      <div class="vstack gap-3">
+        <div>
+          <label class="form-label small  text-uppercase fw-semibold mb-1">
+            {{ 'CALCULADORA.MODAL_NOMBRE' | translate }} <span class="text-success">*</span>
+          </label>
+          <input type="text" [(ngModel)]="datosCliente.nombre"
+            [placeholder]="'CALCULADORA.PLACEHOLDERS.NOMBRE' | translate"
+            class="form-control bg-black border-secondary text-light">
+        </div>
+        <div>
+          <label class="form-label small  text-uppercase fw-semibold mb-1">
+            {{ 'CALCULADORA.MODAL_TELEFONO' | translate }} <span class="text-success">*</span>
+          </label>
+          <input type="text" [(ngModel)]="datosCliente.telefono"
+            [placeholder]="'CALCULADORA.PLACEHOLDERS.TELEFONO' | translate"
+            class="form-control bg-black border-secondary text-light">
+        </div>
+        <div>
+          <label class="form-label small  text-uppercase fw-semibold mb-1">
+            {{ 'CALCULADORA.MODAL_EMAIL' | translate }}
+          </label>
+          <input type="email" [(ngModel)]="datosCliente.email"
+            [placeholder]="'CALCULADORA.PLACEHOLDERS.EMAIL' | translate"
+            class="form-control bg-black border-secondary text-light">
+        </div>
+      </div>
+    </div>
+    <ng-template pTemplate="footer">
+      <div class="d-flex justify-content-end gap-2">
+        <button type="button" (click)="confirmarYGenerarCotizacion()"
+          [disabled]="enviandoCotizacion || !datosCliente.nombre || !datosCliente.telefono"
+          class="btn btn-success btn-sm px-4 fw-bold text-light">
+          {{ enviandoCotizacion ? ('CALCULADORA.MODAL_BTN_GENERANDO' | translate) : ('CALCULADORA.MODAL_BTN_CONFIRMAR' |
+          translate) }}
+        </button>
+        <button type="button" (click)="cerrarModalContacto()" class="btn btn-outline-secondary btn-sm px-3 text-light">
+          {{ 'BOTONES.BTN_CANCELAR' | translate }}
+        </button>
+      </div>
+    </ng-template>
+  </p-dialog>
+</div>

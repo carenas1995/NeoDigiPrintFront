@@ -1,0 +1,17 @@
+<div class="config-container">
+  <h2 class="mb-4 text-dark d-flex align-items-center gap-2">{{ 'CONFIGURACION.TITULO' | translate }}</h2>
+  <section class="card" *ngIf="empresa">
+    <h3 class="mb-4 text-light">{{ 'CONFIGURACION.EMPRESA.TITULO' | translate }}</h3>
+    <div class="form-grid">
+      <p><strong>{{ 'CONFIGURACION.EMPRESA.NOMBRE' | translate }}:</strong> {{ empresa.nombre }}</p>
+      <p><strong>{{ 'CONFIGURACION.EMPRESA.NIT' | translate }}:</strong> {{ empresa.nit }}</p>
+      <p><strong>{{ 'CONFIGURACION.EMPRESA.EMAIL' | translate }}:</strong> {{ empresa.email }}</p>
+    </div>
+  </section>
+  <section class="card">
+    <h3 class="mb-4 text-light">{{ 'CONFIGURACION.MOTORES.TITULO' | translate }}</h3>
+    <ul>
+      <li *ngFor="let motor of motores">{{ motor.nombre }}</li>
+    </ul>
+  </section>
+</div>

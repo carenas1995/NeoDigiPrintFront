@@ -1,0 +1,10 @@
+<div class="neo-main-layout">
+  <app-sidebar></app-sidebar>
+
+  <div class="neo-viewport-wrapper">
+    <app-navbar (buscar)="onBuscar($event)"></app-navbar>
+    <main class="neo-page-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
